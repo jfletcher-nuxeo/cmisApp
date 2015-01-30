@@ -19,12 +19,23 @@
 
 </head>
 
-<body>
+<body class="pageBackground">
 
     <div id="cmisApp" class="cmisApp">
         <!-- Header -->
-        <img src="images/totally-fake-auto-logo.png">
-        <span class="formTitle">Inusurance Claim Form</span>
+        <table>
+            <tr>
+                <td><img src="images/totally-fake-auto-logo.png">
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>
+                    <span class="formTitle">Inusurance Claim Form</span>
+                </td>
+            </tr>
+        </table>
+
+
 
 
         <!-- Personal Information -->
@@ -43,11 +54,11 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span id="lastName" class="fieldValue"></span>
+                <td class="fieldCell">
+                    <input id="lastName" class="fieldValue"></input>
                 </td>
                 <td>
-                    <span id="firstName" class="fieldValue"></span>
+                    <input id="firstName" class="fieldValue"></input>
                 </td>
             </tr>
             <tr>
@@ -57,7 +68,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <span id="phoneMain" class="fieldValue"></span>
+                    <input id="phoneMain" class="fieldValue"></input>
                 </td>
             </tr>
         </table>
@@ -77,13 +88,13 @@
             </tr>
             <tr>
                 <td>
-                    <span id="contractId" class="fieldValue"></div>
+                    <input id="contractId" class="fieldValue"></input>
                 </td>
             </tr>
         </table>
 
-        
-                <!-- Personal Information -->
+
+        <!-- Personal Information -->
         <table class="section">
             <tr>
                 <td colspan="2">
@@ -100,14 +111,14 @@
             </tr>
             <tr>
                 <td>
-                    <span id="incidentDate" class="fieldValue"></span>
+                    <input type="date" id="incidentDate" class="fieldValue"></input>
                 </td>
                 <td>
-                    <input type="checkbox" id="typeAccident" class="myCheckbox"><span class="fieldLabel">Accident</span>
+                    <input type="radio" name="incidentType" id="typeAccident" class="myCheckbox"><span class="fieldLabel">Accident</span>
                     </input>
-                    <input type="checkbox" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
+                    <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
                     </input>
-                    <input type="checkbox" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Other</span>
+                    <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Other</span>
                     </input>
                 </td>
             </tr>
@@ -118,10 +129,12 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <span id="incidentDescription" class="fieldValue"></span>
+                    <textarea id="incidentDescription" class="fieldValue" rows="5"></textarea>
                 </td>
             </tr>
         </table>
+
+        <div class="submitButton">Submit</div>
     </div>
 
 </body>
