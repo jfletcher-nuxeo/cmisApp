@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scratch</title>
+    <link rel="stylesheet" href="css/cmisApp.css" />
+
+    <!-- This is mainly used to get the document ID from the URL. -->
+    <script src="lib/util.js"></script>
+
+    <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
+    <script src="lib/superagent.js"></script>
+
+    <!-- CMIS client from https://github.com/agea/CmisJS -->
+    <script src="lib/cmis.js"></script>
+
+    <!-- My custom app -->
+    <script src="lib/cmisApp.js"></script>
+
+</head>
+
+<body>
+
+    <div id="cmisApp" class="cmisApp">
+        <!-- Header -->
+        <img src="images/totally-fake-auto-logo.png">
+        <span class="formTitle">Inusurance Claim Form</span>
+
+
+        <!-- Personal Information -->
+        <table class="section">
+            <tr>
+                <td colspan="2">
+                    <span class="sectionLabel">Personal Information</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="fieldLabel">Last Name</span>
+                </td>
+                <td>
+                    <span class="fieldLabel">First Name</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="lastName" class="fieldValue"></span>
+                </td>
+                <td>
+                    <span id="firstName" class="fieldValue"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="fieldLabel">Phone Number</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span id="phoneMain" class="fieldValue"></span>
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- Policy Information -->
+        <table class="section">
+            <tr>
+                <td>
+                    <span class="sectionLabel">Policy Information</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="fieldLabel">Policy ID</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="contractId" class="fieldValue"></div>
+                </td>
+            </tr>
+        </table>
+
+        
+                <!-- Personal Information -->
+        <table class="section">
+            <tr>
+                <td colspan="2">
+                    <span class="sectionLabel">Incident Information</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="fieldLabel">Date</span>
+                </td>
+                <td>
+                    <span class="fieldLabel">Type</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id="incidentDate" class="fieldValue"></span>
+                </td>
+                <td>
+                    <input type="checkbox" id="typeAccident" class="myCheckbox"><span class="fieldLabel">Accident</span>
+                    </input>
+                    <input type="checkbox" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
+                    </input>
+                    <input type="checkbox" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Other</span>
+                    </input>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="fieldLabel">Description</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span id="incidentDescription" class="fieldValue"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
