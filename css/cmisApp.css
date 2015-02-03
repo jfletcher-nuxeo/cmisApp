@@ -123,5 +123,9 @@ td {
     display: none;
     background: #AAAAAA;
     float: right;
-    cursor: pointer;
+    position: relative;
+    /* position is required in order for z-index to work. */
+    
+    z-index: 100;
+    /* z-index is used in conjucntion with the "grayOut()" function in util.js to get the button to stay on top. */
 }
