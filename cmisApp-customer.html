@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Scratch</title>
+    <title>Update Insurance Claim Form</title>
+    <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/cmisApp.css" />
 
     <!-- This is mainly used to get the document ID from the URL. -->
@@ -15,12 +16,44 @@
     <script src="lib/cmis.js"></script>
 
     <!-- My custom app -->
-    <script src="lib/cmisApp.js"></script>
+    <script src="lib/cmisApp-customer.js"></script>
 
 </head>
 
 <body class="pageBackground">
+
+
+    <!-- Login dialog -->
+    <div id="loginWindow" class="loginWindow">
+        <!-- Credentials -->
+        <table class="loginTable">
+            <tr>
+                <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
+                </td>
+            </tr>
+            <tr>
+                <td> Username </td>
+                <td>
+                    <input id="userName" class="loginValue"></input>
+                </td>
+            </tr>
+            <tr>
+                <td> Password </td>
+                <td>
+                    <input id="password" class="loginValue" type="password"></input>
+                </td>
+            </tr>
+        </table>
+        <div id="loginButton" class="loginButton">Log in</div>
+        <div id="loginButtonDisabled" class="loginButtonDisabled">Please wait...</div>
+        <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
+        </div>
+    </div>
+
+
+    <!-- CMIS client app -->
     <div id="cmisApp" class="cmisApp">
+
         <!-- Header -->
         <table>
             <tr>
@@ -31,6 +64,14 @@
                 <td>
                     <span class="formTitle">Update Inusurance Claim</span>
                 </td>
+            </tr>
+        </table>
+
+
+        <!-- Comment -->
+        <table class="section">
+            <tr>
+                <td id="claimDeptComment" class="claimDeptComment"> Comment </td>
             </tr>
         </table>
 
@@ -115,7 +156,7 @@
                     </input>
                     <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
                     </input>
-                    <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Other</span>
+                    <input type="radio" name="incidentType" id="typeOther" class="myCheckbox"><span class="fieldLabel">Other</span>
                     </input>
                 </td>
             </tr>
@@ -133,6 +174,10 @@
 
         <div id="submitButton" class="submitButton">Submit</div>
         <div id="submitButton_disabled" class="submitButtonDisabled" hidden="hidden">Please wait...</div>
+        <div id="submitButton_done" class="submitButtonDone" hidden="hidden">Please wait...</div>
+
+        <div id="resultWindow" class="resultWindow"><span id="submitMessage" class="submitMessage">message</span>
+        </div>
     </div>
 
 </body>

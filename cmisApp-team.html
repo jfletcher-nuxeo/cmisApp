@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Download Report</title>
+
+    <!-- This is mainly used to get the document ID from the URL. -->
+    <script src="lib/util.js"></script>
+
+    <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
+    <script src="lib/superagent.js"></script>
+
+    <!-- CMIS client from https://github.com/agea/CmisJS -->
+    <script src="lib/cmis.js"></script>
+
+    <!-- My custom app -->
+    <script src="lib/cmisApp_report.js"></script>
+
+</head>
+
+<body class="pageBackground">
+    <div id="cmisApp" class="cmisApp">
+        <!-- Header -->
+        <table>
+            <tr>
+                <td><img src="images/totally-fake-auto-logo.png">
+                </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td>
+                    <span class="formTitle">Download Inusurance Claim Report</span>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
