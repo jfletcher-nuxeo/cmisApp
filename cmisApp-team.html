@@ -2,9 +2,13 @@
 <html>
 
 <head>
-    <title>Download Report</title>
+    <title>Download Claim Reports</title>
 
-    <!-- This is mainly used to get the document ID from the URL. -->
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/cmisApp-common.css" />
+    <link rel="stylesheet" href="css/cmisApp-team.css" />
+
+    <!-- used to get values from HTML Input elements -->
     <script src="lib/util.js"></script>
 
     <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
@@ -14,24 +18,75 @@
     <script src="lib/cmis.js"></script>
 
     <!-- My custom app -->
-    <script src="lib/cmisApp_report.js"></script>
+    <script src="lib/login.js"></script>
+    <script src="lib/cmisApp-common.js"></script>
+    <script src="lib/cmisApp-team.js"></script>
 
 </head>
 
 <body class="pageBackground">
-    <div id="cmisApp" class="cmisApp">
-        <!-- Header -->
-        <table>
+
+
+    <!-- Login dialog -->
+    <div id="loginWindow" class="loginWindow">
+        <table class="loginTable">
+            <!-- logo -->
             <tr>
-                <td><img src="images/totally-fake-auto-logo.png">
+                <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
                 </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
+            </tr>
+            <!-- credentials -->
+            <tr>
+                <td> Username </td>
                 <td>
-                    <span class="formTitle">Download Inusurance Claim Report</span>
+                    <input id="userName" class="loginValue"></input>
+                </td>
+            </tr>
+            <tr>
+                <td> Password </td>
+                <td>
+                    <input id="password" class="loginValue" type="password"></input>
                 </td>
             </tr>
         </table>
+        <!-- button and error message -->
+        <div class="loginButtonContainer">
+            <div class="loginButtonItem">
+                <div id="loginButton" class="loginButton">Log in</div>
+                <div id="loginButtonDisabled" class="loginButtonDisabled">Wait...</div>
+            </div>
+            <div class="loginMessageItem">
+                <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CMIS App -->
+    <div id="cmisApp" class="cmisApp">
+
+
+        <!-- Header -->
+        <table class="section">
+            <tr>
+                <td><img src="images/totally-fake-auto-logo.png">
+                </td>
+                <td>
+                    <span class="formTitle">My Inusurance Claims</span>
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- Claim list -->
+        <table id="claimList" class="claimList">
+            <thead>
+                <tr id="claimListHeader" class="claimListHeader"></tr>
+            </thead>
+            <tbody id="claimListBody"></tbody>
+        </table>
+
 
     </div>
 

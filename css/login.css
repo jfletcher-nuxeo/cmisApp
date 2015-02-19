@@ -1,11 +1,32 @@
 .loginWindow {
-    margin: 10px;
     padding: 20px;
     border-style: ridge;
     border-width: 1px;
-    display: inline-block;
     background-color: white;
-    position: relative;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    /**
+    * This silliness centers the div in the page.
+    *
+    * The 'width' is required to horizontally center.
+    *
+    * Normally it's suggested to use a fixed height for vertical centering because
+    * the default 'display' will be block so the div will fill the screen. But I
+    * found that 'display: table' works; the div is vertically centered and the
+    * height adjusts to match the content.
+    */
+    
+    width: 313px;
+    display: table;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .loginLogo {
@@ -14,10 +35,25 @@
 
 .loginTable {
     width: 100%;
+    margin-bottom: 7px;
 }
 
 .loginValue {
     width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.loginButtonContainer {
+    width: 100%;
+    display: flex;
+}
+
+.loginButtonItem {
+    order: 1;
 }
 
 .loginButton {
@@ -40,13 +76,15 @@
     padding: 0px 25.6px;
     font-weight: 300;
     font-size: 14px;
-    margin: 0;
     text-decoration: none;
     text-align: center;
-    display: block;
     background: #0971B2;
-    float: right;
     cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .loginButton:hover {
@@ -73,30 +111,38 @@
     padding: 0px 25.6px;
     font-weight: 300;
     font-size: 14px;
-    margin: 0;
     text-decoration: none;
     text-align: center;
     display: none;
     background: #AAAAAA;
-    float: right;
-    position: relative;
-    /* position is required in order for z-index to work. */
-    
-    z-index: 100;
-    /* z-index is used in conjunction with the "grayOut()" function in util.js to get the button to stay on top. */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.loginMessageItem {
+    order: 0;
+    flex-grow: 1;
+    align-self: center;
+    margin-right: 10px;
 }
 
 .loginMessageWindow {
+    width: auto;
+    text-align: center;
     padding: 5px;
     display: none;
     background-color: #EEEEEE;
-    float: left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .loginMessage {
     color: #FF0000;
     font-size: 90%;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
 }
