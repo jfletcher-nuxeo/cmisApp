@@ -2,9 +2,9 @@
 
 ## Notes
 
-Two example [CMIS](http://en.wikipedia.org/wiki/Content_Management_Interoperability_Services) clients for the Nuxeo Case Management Showcase.  Provided as examples of how to build CMIS clients using [CmisJS](https://github.com/agea/CmisJS).
+Two example [CMIS](http://en.wikipedia.org/wiki/Content_Management_Interoperability_Services) clients for the Nuxeo Case Management Showcase.  Provided as examples of how to build CMIS clients using [CmisJS](https://github.com/agea/CmisJS). These apps should work with any Web server, they do not require Nuxeo to host the apps.
 
-Note: these applications require the Nuxeo Case Management Showcase to function correctly. They are not intended to be functional examples, they are just provided for reference. It's possible to create a working example by defining the necessary document types in your Nuxeo server; you can see required fields in the javascript source for each app.
+Note however these applications require the Nuxeo Case Management Showcase to function correctly. They are not intended to be functional examples, they are just provided for reference. It's possible to create a working example by defining the necessary document types in your Nuxeo server; you can see required fields in the javascript source for each app.
 
 Caveat: I am not a Web developer by trade so don't be surprised if the code is...surprising :)
 
