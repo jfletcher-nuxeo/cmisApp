@@ -1,0 +1,55 @@
+.claimList {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.claimListHeader {
+    background-color: #e7e7ff;
+    border-color: #e0e0e0;
+    border-width: 1px;
+    white-space: nowrap;
+    border-style: solid none solid;
+    text-align: left;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.claimListRow {
+    border-width: 1px;
+    border-color: #e0e0e0;
+    border-style: none none solid;
+}
+
+.claimListRow:nth-of-type(even) {
+    /* Alternate row color */
+    
+    background: #f9f9f9;
+}
+
+.claimListRow:hover {
+    /* Hover row color. */
+    
+    background: #dddddd;
+}
+
+.claimListHeaderCell {
+    padding: 5px;
+}
+
+.claimListBodyCell {
+    padding: 10px;
+}
+
+.claimListBodyDownloadCell {
+    /* Center the download icon. */
+    
+    text-align: center;
+}
+
+.downloadButtonIcon {
+    height: 50px;
+}

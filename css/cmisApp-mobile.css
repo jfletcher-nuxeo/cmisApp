@@ -1,0 +1,40 @@
+* {
+    font-family: "arial";
+    font-size: 100%;
+}
+
+.pageBackground {
+    background-color: #0971B2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.cmisApp {
+    padding: 20px;
+    border-style: ridge;
+    border-width: 1px;
+    display: none;
+    background-color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.formTitle {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sectionLabel {
+    font-weight: bold;
+    font-size: 90%;
+}
