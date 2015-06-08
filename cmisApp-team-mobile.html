@@ -2,99 +2,105 @@
 <html>
 
 <head>
-    <title>Download Claim Reports</title>
+   <title>Download Claim Reports</title>
 
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="css/cmisApp-mobile.css" />
-    <link rel="stylesheet" href="css/cmisApp-team-mobile.css" />
+   <link rel="stylesheet" href="css/login.css" />
+   <link rel="stylesheet" href="css/cmisApp-mobile.css" />
+   <link rel="stylesheet" href="css/cmisApp-team-mobile.css" />
 
-    <!-- used to get values from HTML Input elements -->
-    <script src="lib/util.js"></script>
+   <!-- used to get values from HTML Input elements -->
+   <script src="lib/util.js"></script>
 
-    <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
-    <script src="lib/superagent.js"></script>
+   <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
+   <script src="lib/superagent.js"></script>
 
-    <!-- CMIS client from https://github.com/agea/CmisJS -->
-    <script src="lib/cmis.js"></script>
+   <!-- CMIS client from https://github.com/agea/CmisJS -->
+   <script src="lib/cmis.js"></script>
 
-    <!-- My custom app -->
-    <script src="lib/login.js"></script>
-    <script src="lib/cmisApp-common.js"></script>
-    <script src="lib/cmisApp-team.js"></script>
+   <!-- My custom app -->
+   <script src="lib/login.js"></script>
+   <script src="lib/cmisApp-common.js"></script>
+   <script src="lib/cmisApp-team.js"></script>
 
 </head>
 
 <body class="pageBackground">
 
 
-    <!-- Login dialog -->
-    <div id="loginWindow" class="loginWindow">
-        <table class="loginTable">
-            <!-- logo -->
-            <tr>
-                <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
-                </td>
-            </tr>
-            <!-- credentials -->
-            <tr>
-                <td> Username </td>
-                <td>
-                    <input id="userName" class="loginValue"></input>
-                </td>
-            </tr>
-            <tr>
-                <td> Password </td>
-                <td>
-                    <input id="password" class="loginValue" type="password"></input>
-                </td>
-            </tr>
-        </table>
-        <!-- button and error message -->
-        <div class="loginButtonContainer">
-            <div class="loginButtonItem">
-                <div id="loginButton" class="loginButton">Log in</div>
-                <div id="loginButtonDisabled" class="loginButtonDisabled">Wait...</div>
+   <!-- Login dialog -->
+   <div id="loginWindow" class="loginWindow">
+      <table class="loginTable">
+         <!-- logo -->
+         <tr>
+            <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
+            </td>
+         </tr>
+         <!-- credentials -->
+         <tr>
+            <td> Server </td>
+            <td>
+               <input id="server" class="loginValue"></input>
+            </td>
+         </tr>
+         <tr>
+            <td> Username </td>
+            <td>
+               <input id="userName" class="loginValue"></input>
+            </td>
+         </tr>
+         <tr>
+            <td> Password </td>
+            <td>
+               <input id="password" class="loginValue" type="password"></input>
+            </td>
+         </tr>
+      </table>
+      <!-- button and error message -->
+      <div class="loginButtonContainer">
+         <div class="loginButtonItem">
+            <div id="loginButton" class="loginButton">Log in</div>
+            <div id="loginButtonDisabled" class="loginButtonDisabled">Wait...</div>
+         </div>
+         <div class="loginMessageItem">
+            <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
             </div>
-            <div class="loginMessageItem">
-                <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 
 
-    <!-- CMIS App -->
-    <div id="cmisApp" class="cmisApp">
+   <!-- CMIS App -->
+   <div id="cmisApp" class="cmisApp">
 
 
-        <!-- Header -->
-        <table class="section">
-            <tr>
-                <td><img src="images/totally-fake-auto-logo.png">
-                </td>
-                <td>
-                    <span class="formTitle">My Inusurance Claims</span>
-                </td>
+      <!-- Header -->
+      <table class="section">
+         <tr>
+            <td><img src="images/totally-fake-auto-logo.png">
+            </td>
+            <td>
+               <span class="formTitle">My Inusurance Claims</span>
+            </td>
+         </tr>
+      </table>
+
+
+      <!-- Claim list -->
+      <table id="claimList" class="claimList">
+         <thead>
+            <tr id="claimListHeader" class="claimListHeader">
+               <th class="claimListHeaderCell">Incident ID</th>
+               <th class="claimListHeaderCell">First Name</th>
+               <th class="claimListHeaderCell">Last Name</th>
+               <th class="claimListHeaderCell">State</th>
+               <th class="claimListHeaderCell">Report</th>
             </tr>
-        </table>
+         </thead>
+         <tbody id="claimListBody"></tbody>
+      </table>
 
 
-        <!-- Claim list -->
-        <table id="claimList" class="claimList">
-            <thead>
-                <tr id="claimListHeader" class="claimListHeader">
-                    <th class="claimListHeaderCell">Incident ID</th>
-                    <th class="claimListHeaderCell">First Name</th>
-                    <th class="claimListHeaderCell">Last Name</th>
-                    <th class="claimListHeaderCell">State</th>
-                    <th class="claimListHeaderCell">Report</th>
-                </tr>
-            </thead>
-            <tbody id="claimListBody"></tbody>
-        </table>
-
-
-    </div>
+   </div>
 
 </body>
 

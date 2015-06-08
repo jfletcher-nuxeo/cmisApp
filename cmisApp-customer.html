@@ -2,205 +2,211 @@
 <html>
 
 <head>
-    <title>Update Insurance Claim Form</title>
+   <title>Update Insurance Claim Form</title>
 
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="css/cmisApp-common.css" />
-    <link rel="stylesheet" href="css/cmisApp-customer.css" />
+   <link rel="stylesheet" href="css/login.css" />
+   <link rel="stylesheet" href="css/cmisApp-common.css" />
+   <link rel="stylesheet" href="css/cmisApp-customer.css" />
 
-    <!-- This is mainly used to get the document ID from the URL. -->
-    <script src="lib/util.js"></script>
+   <!-- This is mainly used to get the document ID from the URL. -->
+   <script src="lib/util.js"></script>
 
-    <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
-    <script src="lib/superagent.js"></script>
+   <!-- This is required by cmis.js, from https://github.com/visionmedia/superagent -->
+   <script src="lib/superagent.js"></script>
 
-    <!-- CMIS client from https://github.com/agea/CmisJS -->
-    <script src="lib/cmis.js"></script>
+   <!-- CMIS client from https://github.com/agea/CmisJS -->
+   <script src="lib/cmis.js"></script>
 
-    <!-- My custom app -->
-    <script src="lib/login.js"></script>
-    <script src="lib/cmisApp-common.js"></script>
-    <script src="lib/cmisApp-customer.js"></script>
+   <!-- My custom app -->
+   <script src="lib/login.js"></script>
+   <script src="lib/cmisApp-common.js"></script>
+   <script src="lib/cmisApp-customer.js"></script>
 
 </head>
 
 <body class="pageBackground">
 
 
-    <!-- Login dialog -->
-    <div id="loginWindow" class="loginWindow">
-        <table class="loginTable">
-            <!-- logo -->
-            <tr>
-                <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
-                </td>
-            </tr>
-            <!-- credentials -->
-            <tr>
-                <td> Username </td>
-                <td>
-                    <input id="userName" class="loginValue"></input>
-                </td>
-            </tr>
-            <tr>
-                <td> Password </td>
-                <td>
-                    <input id="password" class="loginValue" type="password"></input>
-                </td>
-            </tr>
-        </table>
-        <!-- button and error message -->
-        <div class="loginButtonContainer">
-            <div class="loginButtonItem">
-                <div id="loginButton" class="loginButton">Log in</div>
-                <div id="loginButtonDisabled" class="loginButtonDisabled">Wait...</div>
+   <!-- Login dialog -->
+   <div id="loginWindow" class="loginWindow">
+      <table class="loginTable">
+         <!-- logo -->
+         <tr>
+            <td colspan="2" class="loginLogo"><img src="images/totally-fake-auto-logo.png">
+            </td>
+         </tr>
+         <!-- credentials -->
+         <tr>
+            <td> Server </td>
+            <td>
+               <input id="server" class="loginValue"></input>
+            </td>
+         </tr>
+         <tr>
+            <td> Username </td>
+            <td>
+               <input id="userName" class="loginValue"></input>
+            </td>
+         </tr>
+         <tr>
+            <td> Password </td>
+            <td>
+               <input id="password" class="loginValue" type="password"></input>
+            </td>
+         </tr>
+      </table>
+      <!-- button and error message -->
+      <div class="loginButtonContainer">
+         <div class="loginButtonItem">
+            <div id="loginButton" class="loginButton">Log in</div>
+            <div id="loginButtonDisabled" class="loginButtonDisabled">Wait...</div>
+         </div>
+         <div class="loginMessageItem">
+            <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
             </div>
-            <div class="loginMessageItem">
-                <div id="loginMessageWindow" class="loginMessageWindow"><span id="loginMessage" class="loginMessage">message</span>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
 
 
-    <!-- CMIS client app -->
-    <div id="cmisApp" class="cmisApp">
+   <!-- CMIS client app -->
+   <div id="cmisApp" class="cmisApp">
 
-        <!-- Header -->
-        <table>
-            <tr>
-                <td><img src="images/totally-fake-auto-logo.png">
-                </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
-                <td>
-                    <span class="formTitle">Update Inusurance Claim</span>
-                </td>
-            </tr>
-        </table>
-
-
-        <!-- Comment -->
-        <table class="section">
-            <tr>
-                <td id="claimDeptComment" class="claimDeptComment"> &nbsp; </td>
-            </tr>
-        </table>
+      <!-- Header -->
+      <table>
+         <tr>
+            <td><img src="images/totally-fake-auto-logo.png">
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+               <span class="formTitle">Update Inusurance Claim</span>
+            </td>
+         </tr>
+      </table>
 
 
-        <!-- Personal Information -->
-        <table class="section">
-            <tr>
-                <td colspan="2">
-                    <span class="sectionLabel">Personal Information</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="fieldLabel">Last Name</span>
-                </td>
-                <td>
-                    <span class="fieldLabel">First Name</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="fieldCell">
-                    <input id="lastName" class="fieldValue"></input>
-                </td>
-                <td>
-                    <input id="firstName" class="fieldValue"></input>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <span class="fieldLabel">Phone Number</span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input id="phoneMain" class="fieldValue"></input>
-                </td>
-            </tr>
-        </table>
+      <!-- Comment -->
+      <table class="section">
+         <tr>
+            <td id="claimDeptComment" class="claimDeptComment"> &nbsp; </td>
+         </tr>
+      </table>
 
 
-        <!-- Policy Information -->
-        <table class="section">
-            <tr>
-                <td>
-                    <span class="sectionLabel">Policy Information</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="fieldLabel">Policy ID</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input id="contractId" class="fieldValue"></input>
-                </td>
-            </tr>
-        </table>
+      <!-- Personal Information -->
+      <table class="section">
+         <tr>
+            <td colspan="2">
+               <span class="sectionLabel">Personal Information</span>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <span class="fieldLabel">Last Name</span>
+            </td>
+            <td>
+               <span class="fieldLabel">First Name</span>
+            </td>
+         </tr>
+         <tr>
+            <td class="fieldCell">
+               <input id="lastName" class="fieldValue"></input>
+            </td>
+            <td>
+               <input id="firstName" class="fieldValue"></input>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <span class="fieldLabel">Phone Number</span>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <input id="phoneMain" class="fieldValue"></input>
+            </td>
+         </tr>
+      </table>
 
 
-        <!-- Incident Information -->
-        <table class="section">
-            <tr>
-                <td colspan="2">
-                    <span class="sectionLabel">Incident Information</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span class="fieldLabel">Date</span>
-                </td>
-                <td>
-                    <span class="fieldLabel">Type</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="date" id="incidentDate" class="fieldValue"></input>
-                </td>
-                <td>
-                    <input type="radio" name="incidentType" id="typeAccident" class="myCheckbox"><span class="fieldLabel">Accident</span>
-                    </input>
-                    <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
-                    </input>
-                    <input type="radio" name="incidentType" id="typeOther" class="myCheckbox"><span class="fieldLabel">Other</span>
-                    </input>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <span class="fieldLabel">Description</span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <textarea id="incidentDescription" class="fieldValue" rows="5"></textarea>
-                </td>
-            </tr>
-        </table>
+      <!-- Policy Information -->
+      <table class="section">
+         <tr>
+            <td>
+               <span class="sectionLabel">Policy Information</span>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <span class="fieldLabel">Policy ID</span>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <input id="contractId" class="fieldValue"></input>
+            </td>
+         </tr>
+      </table>
 
 
-        <!-- Submit button -->
-        <div class="submitButtonContainer">
-            <div id="submitButton" class="submitButton">Submit</div>
-            <div id="submitButton_disabled" class="submitButtonDisabled" hidden="hidden">Please wait...</div>
-            <!-- This button is not actually visible*, it's just there to prevent the container from resizing when I hide submitButton_disabled. -->
-            <!-- * If you press 'select all' you'll see the text. -->
-            <div id="submitButton_done" class="submitButtonDone" hidden="hidden">All done!</div>
-        </div>
+      <!-- Incident Information -->
+      <table class="section">
+         <tr>
+            <td colspan="2">
+               <span class="sectionLabel">Incident Information</span>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <span class="fieldLabel">Date</span>
+            </td>
+            <td>
+               <span class="fieldLabel">Type</span>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <input type="date" id="incidentDate" class="fieldValue"></input>
+            </td>
+            <td>
+               <input type="radio" name="incidentType" id="typeAccident" class="myCheckbox"><span class="fieldLabel">Accident</span>
+               </input>
+               <input type="radio" name="incidentType" id="typeBreakdown" class="myCheckbox"><span class="fieldLabel">Breakdown</span>
+               </input>
+               <input type="radio" name="incidentType" id="typeOther" class="myCheckbox"><span class="fieldLabel">Other</span>
+               </input>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <span class="fieldLabel">Description</span>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <textarea id="incidentDescription" class="fieldValue" rows="5"></textarea>
+            </td>
+         </tr>
+      </table>
 
 
-        <!-- Result window; this is centered in the window. -->
-        <div id="resultWindow" class="resultWindow"><span id="submitMessage" class="submitMessage">message</span>
-        </div>
+      <!-- Submit button -->
+      <div class="submitButtonContainer">
+         <div id="submitButton" class="submitButton">Submit</div>
+         <div id="submitButton_disabled" class="submitButtonDisabled" hidden="hidden">Please wait...</div>
+         <!-- This button is not actually visible*, it's just there to prevent the container from resizing when I hide submitButton_disabled. -->
+         <!-- * If you press 'select all' you'll see the text. -->
+         <div id="submitButton_done" class="submitButtonDone" hidden="hidden">All done!</div>
+      </div>
 
 
-    </div>
+      <!-- Result window; this is centered in the window. -->
+      <div id="resultWindow" class="resultWindow"><span id="submitMessage" class="submitMessage">message</span>
+      </div>
+
+
+   </div>
 
 
 </body>
